@@ -108,8 +108,12 @@ const deleteProduct = catchAsync(async (req, res, next) => {
 
 const decreaseProductQuantity = catchAsync(async (req, res) => {
   const { id } = req.params;
+  const { quantity } = req.body;
 
-  const updatedProduct = await productSerivces.decreaseProductQuantity(id);
+  const updatedProduct = await productSerivces.decreaseProductQuantity(
+    id,
+    quantity
+  );
 
   if (!updatedProduct) {
     return sendResponse(res, {
@@ -134,5 +138,5 @@ export const prouductControllers = {
   getAllProduct,
   updateProduct,
   deleteProduct,
-  decreaseProductQuantity
+  decreaseProductQuantity,
 };
