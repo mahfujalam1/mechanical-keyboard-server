@@ -24,3 +24,4 @@ const test = async (req: Request, res: Response) => {
 app.get("/", test);
 
 export default app;
+
